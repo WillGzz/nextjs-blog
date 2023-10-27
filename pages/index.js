@@ -1,6 +1,22 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import styles from '../styles/Home.module.css';
+/*
+In Next.js, a page is a React Component exported from a file in the pages directory.
 
+Pages are associated with a route based on their file name. For example, in development:
+
+pages/index.js is associated with the / route.
+pages/posts/first-post.js is associated with the /posts/first-post route.
+
+In Next.js, you can use the Link Component next/link to link between pages in your application.
+ <Link> allows you to do client-side navigation and accepts props that give you better control over the navigation behavior.
+
+
+
+
+
+*/ 
 export default function Home() {
   return (
     <div className={styles.container}>
@@ -11,7 +27,7 @@ export default function Home() {
 
       <main>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+        Read <Link href="/posts/first-post">this page!</Link>
         </h1>
 
         <p className={styles.description}>
