@@ -1,6 +1,8 @@
 import Head from 'next/head';
-import Link from 'next/link';
-import styles from '../styles/Home.module.css';
+import Layout, { siteTitle } from './components/layout';
+import utilStyles from '../styles/utils.module.css';
+
+
 /*
 In Next.js, a page is a React Component exported from a file in the pages directory.
 
@@ -12,136 +14,35 @@ pages/posts/first-post.js is associated with the /posts/first-post route.
 In Next.js, you can use the Link Component next/link to link between pages in your application.
  <Link> allows you to do client-side navigation and accepts props that give you better control over the navigation behavior.
 
+ Client-side navigation means that the page transition happens using JavaScript, which is faster than the default navigation done by the browser.
+
+ next/image allows for resizing, optimizing, and serving images in modern formats like WebP when the browser supports it.
+  This avoids shipping large images to devices with a smaller viewport
 
 
 
+       Third-party JavaScript refers to any scripts that are added from a third-party source. Usually, third-party scripts are included in order to 
+       introduce newer functionality into a site that does not need to be written from scratch, such as analytics, ads, and customer support widgets.
 
-*/ 
+       CSS modules allow you to locally scope CSS at the component-level by automatically creating unique class names. 
+       This allows you to use the same CSS class name in different files without worrying about class name collisions.
+
+
+
+*/
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <Layout home>
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>{siteTitle}</title>
       </Head>
-
-      <main>
-        <h1 className={styles.title}>
-        Read <Link href="/posts/first-post">this page!</Link>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing <code>pages/index.js</code>
+      <section className={utilStyles.headingMd}>
+        <p>Hello, I'm Will, a Computer Science student at Lehman College. I'm graduating soon and hope to get a job as web developer. </p>
+        <p>
+          (This is a sample website - you’ll be building a site like this on{' '}
+          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
         </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel" className={styles.logo} />
-        </a>
-      </footer>
-
-      <style jsx>{`
-        main {
-          padding: 5rem 0;
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-        footer {
-          width: 100%;
-          height: 100px;
-          border-top: 1px solid #eaeaea;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-        footer img {
-          margin-left: 0.5rem;
-        }
-        footer a {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          text-decoration: none;
-          color: inherit;
-        }
-        code {
-          background: #fafafa;
-          border-radius: 5px;
-          padding: 0.75rem;
-          font-size: 1.1rem;
-          font-family:
-            Menlo,
-            Monaco,
-            Lucida Console,
-            Liberation Mono,
-            DejaVu Sans Mono,
-            Bitstream Vera Sans Mono,
-            Courier New,
-            monospace;
-        }
-      `}</style>
-
-      <style jsx global>{`
-        html,
-        body {
-          padding: 0;
-          margin: 0;
-          font-family:
-            -apple-system,
-            BlinkMacSystemFont,
-            Segoe UI,
-            Roboto,
-            Oxygen,
-            Ubuntu,
-            Cantarell,
-            Fira Sans,
-            Droid Sans,
-            Helvetica Neue,
-            sans-serif;
-        }
-        * {
-          box-sizing: border-box;
-        }
-      `}</style>
-    </div>
+      </section>
+    </Layout>
   );
 }
